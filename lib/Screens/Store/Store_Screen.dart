@@ -11,27 +11,28 @@ class StoreScreen extends StatefulWidget {
 }
 
 class _StoreScreenState extends State<StoreScreen> {
-  final List<String> locations = [
-    "New York",
-    "Paris",
-    "Tokyo",
-    "Cairo",
-    "Sydney",
-    "Rio",
+  // Locations data
+  final List<Map<String, String?>> locations = [
+    {"name": "Jaipur", "image": 'assets/images/jaipur.jpg'},
+    {"name": "Paris", "image": effiletower},
+    {"name": "Kyoto", "image": 'assets/images/Kyoto.jpg'},
+    {"name": "Turkey", "image": 'assets/images/turkey.jpg'},
+    {"name": "Peru", "image": 'assets/images/PERU.jpg'},
+    {"name": "View More", "image": 'assets/images/foward.png'},
   ];
 
-  final List<Map<String, String>> recommendedItems = [
-    {"title": "Special Food 1", "image": logo},
-    {"title": "Cultural Dress 2", "image": logo},
-    {"title": "Local Craft 3", "image": logo},
-    {"title": "Unique Jewelry 4", "image": logo},
-    {"title": "Handmade Bag 5", "image": logo},
-    {"title": "Exotic Spices 6", "image": logo},
-    {"title": "Traditional Art 7", "image": logo},
+  // Recommended items data with description
+final List<Map<String, String?>> recommendedItems = [
+    {"title": "Japanese Kimono", "image": 'assets/images/kinomono.jpg', "description": "A luxurious silk kimono with intricate hand-painted designs."},
+    {"title": "Italian Leather Wallet", "image": 'assets/images/ITALYWALLET.jpg', "description": "Premium Italian leather wallet, known for its elegance and durability."},
+    {"title": "Brazilian Amazonian Handicrafts", "image": 'assets/images/BRAZILIAN.jpg', "description": "Handmade crafts from the Brazilian Amazon, made with natural materials."},
+    {"title": "Indian Wooden Handicrafts", "image": 'assets/images/INDIANHANDI.jpg', "description": "Intricate wooden carvings reflecting India's cultural and spiritual heritage."},
+    {"title": "French Antiques", "image": 'assets/images/FRENCHANTI.jpg', "description": "Vintage French furniture and decorative items with Baroque and Rococo styles."},
+    {"title": "Peruvian Alpaca Wool Sweater", "image": 'assets/images/PWOOLEN.jpg', "description": "Soft alpaca wool sweaters with traditional Incan designs."},
+    
   ];
 
   final List<String> categories = ["All", "Food", "Clothes", "Crafts"];
-
   String selectedCategory = "All";
 
   @override
@@ -39,10 +40,10 @@ class _StoreScreenState extends State<StoreScreen> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
-        title: Text(
+        title: const Text(
           "Regional Store",
           style: TextStyle(
-            color: const Color(0xFF66785F),
+            color: Color(0xFF66785F),
             fontFamily: 'Roboto',
             fontSize: 20,
             fontWeight: FontWeight.bold,
@@ -64,54 +65,11 @@ class _StoreScreenState extends State<StoreScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Filter Bar
               _filterBar(),
-
               const SizedBox(height: 12),
-
-              // Locations Section
-              const Text(
-                "Browse by Location",
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black,
-                ),
-              ),
-              const SizedBox(height: 12),
-              SizedBox(
-                height: 120,
-                child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: locations.length,
-                  itemBuilder: (context, index) {
-                    return _locationCard(locations[index]);
-                  },
-                ),
-              ),
+              _locationsSection(),
               const SizedBox(height: 24),
-
-              // Recommended Items Section
-              const Text(
-                "Recommended Items",
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black,
-                ),
-              ),
-              const SizedBox(height: 12),
-              ListView.builder(
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                itemCount: recommendedItems.length,
-                itemBuilder: (context, index) {
-                  return _recommendedItemCard(
-                    recommendedItems[index]["title"]!,
-                    recommendedItems[index]["image"]!,
-                  );
-                },
-              ),
+              _recommendedItemsSection(),
             ],
           ),
         ),
@@ -119,7 +77,7 @@ class _StoreScreenState extends State<StoreScreen> {
     );
   }
 
-  // Widget for the Filter Bar
+  // Filter Bar Widget
   Widget _filterBar() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -139,24 +97,87 @@ class _StoreScreenState extends State<StoreScreen> {
                 fontWeight: FontWeight.w500,
               ),
             ),
-            backgroundColor: isSelected ? Colors.green : Colors.grey.shade200,
+            backgroundColor: isSelected ? const Color(0xFF66785F) : Colors.grey.shade200,
           ),
         );
       }).toList(),
     );
   }
 
+  // Locations Section Widget
+  Widget _locationsSection() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const Text(
+          "Browse by Location",
+          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black),
+        ),
+        const SizedBox(height: 12),
+        SizedBox(
+          height: 120,
+          child: ListView.builder(
+            scrollDirection: Axis.horizontal,
+            itemCount: locations.length,
+            itemBuilder: (context, index) {
+              String? locationName = locations[index]["name"];
+              String? imagePath = locations[index]["image"];
+              if (locationName != null && imagePath != null) {
+                return _locationCard(locationName, imagePath);
+              } else {
+                return SizedBox.shrink(); // Or handle this case as needed
+              }
+            },
+          ),
+        ),
+      ],
+    );
+  }
+
+  // Recommended Items Section Widget
+  Widget _recommendedItemsSection() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const Text(
+          "Recommended Items",
+          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black),
+        ),
+        const SizedBox(height: 12),
+        ListView.builder(
+          shrinkWrap: true,
+          physics: const NeverScrollableScrollPhysics(),
+          itemCount: recommendedItems.length,
+          itemBuilder: (context, index) {
+            String? title = recommendedItems[index]["title"];
+            String? imagePath = recommendedItems[index]["image"];
+            String? description = recommendedItems[index]["description"];
+            if (title != null && imagePath != null && description != null) {
+              return _recommendedItemCard(title, imagePath, description);
+            } else {
+              return SizedBox.shrink(); // Or handle this case as needed
+            }
+          },
+        ),
+      ],
+    );
+  }
+
   // Widget for a single location card
-  Widget _locationCard(String location) {
+  Widget _locationCard(String location, String imagePath) {
     return GestureDetector(
       onTap: () {
-        Get.off(() => RegionalStorescreen(region: location));
+        if (location != "View More") {
+          Get.off(() => RegionalStorescreen(region: location));
+        } else {
+          print("View More tapped!");
+        }
       },
       child: Container(
         width: 100,
         margin: const EdgeInsets.symmetric(horizontal: 8),
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: Colors.transparent,
           borderRadius: BorderRadius.circular(10),
           boxShadow: [
             BoxShadow(
@@ -171,7 +192,7 @@ class _StoreScreenState extends State<StoreScreen> {
           children: [
             ClipOval(
               child: Image.asset(
-                logo, // Placeholder for dynamic images
+                imagePath,
                 height: 60,
                 width: 60,
                 fit: BoxFit.cover,
@@ -181,11 +202,7 @@ class _StoreScreenState extends State<StoreScreen> {
             Text(
               location,
               textAlign: TextAlign.center,
-              style: const TextStyle(
-                fontSize: 14,
-                fontWeight: FontWeight.w500,
-                color: Colors.black87,
-              ),
+              style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w500, color: Colors.black87),
             ),
           ],
         ),
@@ -194,7 +211,7 @@ class _StoreScreenState extends State<StoreScreen> {
   }
 
   // Widget for a single recommended item card
-  Widget _recommendedItemCard(String title, String imagePath) {
+  Widget _recommendedItemCard(String title, String imagePath, String description) {
     return GestureDetector(
       onTap: () {
         print('Clicked on $title');
@@ -231,19 +248,12 @@ class _StoreScreenState extends State<StoreScreen> {
                 children: [
                   Text(
                     title,
-                    style: const TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w600,
-                      color: Colors.black87,
-                    ),
+                    style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600, color: Colors.black87),
                   ),
                   const SizedBox(height: 4),
-                  const Text(
-                    "Explore regional specialty",
-                    style: TextStyle(
-                      fontSize: 14,
-                      color: Colors.grey,
-                    ),
+                  Text(
+                    description,
+                    style: const TextStyle(fontSize: 14, color: Colors.grey),
                   ),
                 ],
               ),

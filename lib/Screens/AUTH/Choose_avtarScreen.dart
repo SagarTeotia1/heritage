@@ -17,9 +17,9 @@ class _ChooseAvatarScreenState extends State<ChooseAvatarScreen> {
   // List of avatar GLB file paths
   final List<String> avatarModels = [
     'assets/images/talking_male_character_with_pointing_gestures.glb',
-    'assets/images/talking_male_character_with_pointing_gestures.glb',
-    'assets/images/talking_male_character_with_pointing_gestures.glb',
-    'assets/images/talking_male_character_with_pointing_gestures.glb',
+    'assets/images/animated_kamala_harris_standing__talking.glb',
+    'assets/images/talking_justin_trudeau_avatar_for_narration.glb',
+    'assets/images/animated_gerry_chicalo_standing__talking.glb',
   ];
 
   // List of avatar names to display below the model

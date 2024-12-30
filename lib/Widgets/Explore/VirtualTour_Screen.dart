@@ -4,6 +4,7 @@ import 'package:heritage/Const/const_colo.dart';
 import 'package:heritage/Const/const_img.dart';
 import 'package:heritage/Screens/Explore/Explore_Screen.dart';
 import 'package:heritage/Screens/Home/Home_Screen.dart';
+import 'package:url_launcher/url_launcher.dart'; // Import url_launcher
 
 class VirtualtourScreen extends StatelessWidget {
   const VirtualtourScreen({super.key});
@@ -108,7 +109,7 @@ class VirtualtourScreen extends StatelessWidget {
                         children: [
                           Positioned.fill(
                             child: Image.asset(
-                              logo, // Replace with your image path
+                              effiletower, // Replace with your image path
                               fit: BoxFit.cover,
                             ),
                           ),
@@ -251,10 +252,13 @@ class DetailsSection extends StatelessWidget {
           const SizedBox(height: 16),
           // Explore in Metaverse Button
           ElevatedButton(
-            onPressed: () {
-              Get.off(()=>ExploreScreen());
-              // Navigate to Metaverse screen
-              print("Navigate to Metaverse");
+            onPressed: () async {
+              const url = 'https://www.spatial.io/s/Greedys-Digital-Area-67717d4a9eedffff177b0094?share=8625607098453655085'; // Link to explore in Metaverse
+              if (await canLaunch(url)) {
+                await launch(url);
+              } else {
+                throw 'Could not launch $url'; // Handle error if URL cannot be launched
+              }
             },
             style: ElevatedButton.styleFrom(
               backgroundColor: bgcolor,

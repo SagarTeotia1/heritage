@@ -35,7 +35,7 @@ class _ExploreScreenState extends State<ExploreScreen> with SingleTickerProvider
     return Scaffold(
       appBar: AppBar(
         title: const Text('Explore'),
-        backgroundColor: homeBg,  // Assuming homeBg is defined in your constants
+        backgroundColor: Colors.white,  // Assuming homeBg is defined in your constants
         leading: IconButton(
           onPressed: () {
             // Implement the back navigation here

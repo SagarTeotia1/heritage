@@ -48,10 +48,10 @@ class _FeedScreenState extends State<FeedScreen> {
             ),
           );
         },
-        backgroundColor: Colors.blue,
+        backgroundColor: const Color(0xFF4B5945),
         icon: const Icon(Icons.explore, color: Colors.white),
         label: const Text(
-          "Plan Trip with AI",
+          "Plan Trip with Guide",
           style: TextStyle(color: Colors.white),
         ),
       ),
