@@ -2,135 +2,232 @@ import 'package:flutter/material.dart';
 import 'package:heritage/Const/const_fonts.dart';
 import 'package:heritage/Const/const_img.dart';
 
-Widget BestLocWidget() {
-  return Column(
-    crossAxisAlignment:
-        CrossAxisAlignment.start, // Aligns text to the start (left)
-    children: [
-      // Heading with arrow icon
-      Padding(
-        padding: const EdgeInsets.symmetric(
-            horizontal: 20, vertical: 10), // Padding around the text
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment
-              .spaceBetween, // Aligns heading and icon on opposite sides
-          children: [
-            Text(
-              "Best Destination", // Text heading
-              style: TextStyle(
-                fontFamily: boldfont,
-                fontSize: 16, // Font size of the heading
-                color: Colors.black, // Text color
-              ),
-            ),
-            Icon(
-              Icons.arrow_forward, // Arrow icon
-              size: 20, // Icon size
-              color: Colors.black, // Icon color
-            ),
-          ],
-        ),
-      ),
-      // Row of event boxes
-      SingleChildScrollView(
-        scrollDirection:
-            Axis.horizontal, // Makes the row scrollable horizontally
-        child: Row(
-          children: [
-            // Box 1
-            BestLoceventBox(),
-            // Box 2
-            BestLoceventBox(),
-            // Box 3
-            BestLoceventBox(),
-            // Add more boxes as needed
-          ],
-        ),
-      ),
-    ],
-  );
-}
+class HeritageSphereWidget extends StatelessWidget {
+  final List<Map<String, String>> heritageSites = [
+    {
+      "imagePath": 'assets/images/Tajmahal.jpg',
+      "locationName": "Taj Mahal",
+      "description": "A symbol of love and Mughal architecture.",
+    },
+    {
+      "imagePath": effiletower,
+      "locationName": "Eiffel Tower",
+      "description": "An iconic wrought-iron lattice tower in Paris, France.",
+    },
+    {
+      "imagePath": "assets/images/Qutub Minar.jpg",
+      "locationName": "Qutub Minar",
+      "description": "A towering minaret in Delhi, India, built in the 12th century.",
+    },
+    {
+      "imagePath": "assets/images/piyramid.jpg",
+      "locationName": "Great Pyramid of Giza",
+      "description": "The oldest of the Seven Wonders of the Ancient World in Egypt.",
+    },
+  ];
 
-Widget BestLoceventBox() {
-  return Padding(
-    padding: const EdgeInsets.symmetric(horizontal: 10), // Space between boxes
-    child: Material(
-      elevation: 4, // Adds a slight elevation for shadow effect
-      borderRadius: BorderRadius.circular(20), // Rounded corners
-      child: Container(
-        width: 150,
-        height: 200, // Width and height of each box
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(20), // Rounded corners
-        ),
-        child: ClipRRect(
-          borderRadius:
-              BorderRadius.circular(20), // Ensures image respects border radius
-          child: Stack(
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        // Heading
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              // Fill the entire container with the image
-              Image.asset(
-                logo, // Replace with your image path
-                fit: BoxFit.cover, // Fills the container
-                width: double.infinity,
-                height: double.infinity,
-              ),
-              // Like Icon at the top-right corner
-              Positioned(
-                top: 10,
-                right: 10,
-                child: Container(
-                  width: 30, // Diameter of the circular background
-                  height: 30,
-                  decoration: BoxDecoration(
-                    color:
-                        Colors.white60, // Background color of the circular box
-                    shape: BoxShape.circle, // Makes the container circular
-                    boxShadow: [
-                      BoxShadow(
-                          color: Colors.black
-                              .withOpacity(0.1), // Slight shadow for depth
-                          blurRadius: 4,
-                          ),
-                    ],
-                  ),
-                  child: Center(
-                    child: Icon(
-                      Icons.favorite,
-                      color: Color(0xFF91AC8F), // Color of the like icon
-                      size: 24,
-                    ),
-                  ),
+              Text(
+                "Explore Heritage Sites",
+                style: TextStyle(
+                  fontFamily: boldfont,
+                  fontSize: 18,
+                  color: Colors.black,
                 ),
               ),
-              // Event Title as a semi-transparent button at the bottom-left
-              Positioned(
-                bottom: 10,
-                left: 10,
-                child: Container(
-                  padding: EdgeInsets.symmetric(
-                      horizontal: 8, vertical: 4), // Padding inside the button
-                  decoration: BoxDecoration(
-                    color: Colors.black
-                        .withOpacity(0.3), // Semi-transparent background
-                    borderRadius: BorderRadius.circular(8), // Rounded corners
-                  ),
-                  child: Text(
-                    "Tokyo", // Dummy event name
-                    style: TextStyle(
-                      fontSize: 11,
-                      fontFamily: boldfont,
-                      color: Colors.white, // White text color
+              Icon(
+                Icons.arrow_forward,
+                size: 20,
+                color: Colors.black,
+              ),
+            ],
+          ),
+        ),
+        // Row of heritage site cards
+        SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Row(
+            children: [
+              ...heritageSites.map((site) {
+                return HeritageSiteCard(
+                  imagePath: site["imagePath"]!,
+                  locationName: site["locationName"]!,
+                  description: site["description"]!,
+                );
+              }).toList(),
+              // View More Button as TextButton
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10),
+                child: TextButton(
+                  style: TextButton.styleFrom(
+                    backgroundColor: Colors.white,
+                    side: BorderSide(color: Colors.grey),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20),
                     ),
-                    overflow: TextOverflow
-                        .ellipsis, // Ensures the text doesn't overflow
+                  ),
+                  onPressed: () {
+                    // Navigate to detailed page or show additional sites
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => MoreHeritageSitesPage(),
+                      ),
+                    );
+                  },
+                  child: SizedBox(
+                    width: 150,
+                    height: 200,
+                    child: Center(
+                      child: Text(
+                        "View More",
+                        style: TextStyle(
+                          fontFamily: boldfont,
+                          fontSize: 14,
+                          color: Colors.black,
+                        ),
+                      ),
+                    ),
                   ),
                 ),
               ),
             ],
           ),
         ),
+      ],
+    );
+  }
+}
+
+class HeritageSiteCard extends StatelessWidget {
+  final String imagePath;
+  final String locationName;
+  final String description;
+
+  HeritageSiteCard({
+    required this.imagePath,
+    required this.locationName,
+    required this.description,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 10),
+      child: Material(
+        elevation: 4,
+        borderRadius: BorderRadius.circular(20),
+        child: Container(
+          width: 150,
+          height: 200,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(20),
+          ),
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(20),
+            child: Stack(
+              children: [
+                // Background image
+                Image.asset(
+                  imagePath,
+                  fit: BoxFit.cover,
+                  width: double.infinity,
+                  height: double.infinity,
+                ),
+                // Semi-transparent overlay
+                Container(
+                  decoration: BoxDecoration(
+                    color: Colors.black.withOpacity(0.3),
+                  ),
+                ),
+                // Content: Title and description
+                Positioned(
+                  bottom: 10,
+                  left: 10,
+                  right: 10,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        locationName,
+                        style: TextStyle(
+                          fontFamily: boldfont,
+                          fontSize: 14,
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      SizedBox(height: 5),
+                      Text(
+                        description,
+                        style: TextStyle(
+                          fontSize: 12,
+                          color: Colors.white,
+                        ),
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ],
+                  ),
+                ),
+                // Like button
+                Positioned(
+                  top: 10,
+                  right: 10,
+                  child: Container(
+                    width: 30,
+                    height: 30,
+                    decoration: BoxDecoration(
+                      color: Colors.white60,
+                      shape: BoxShape.circle,
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.1),
+                          blurRadius: 4,
+                        ),
+                      ],
+                    ),
+                    child: Center(
+                      child: Icon(
+                        Icons.favorite,
+                        color: Color(0xFF91AC8F),
+                        size: 24,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
       ),
-    ),
-  );
+    );
+  }
+}
+
+class MoreHeritageSitesPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("More Heritage Sites"),
+      ),
+      body: Center(
+        child: Text(
+          "Additional heritage sites coming soon!",
+          style: TextStyle(fontSize: 16),
+        ),
+      ),
+    );
+  }
 }

@@ -17,20 +17,43 @@ class _FeedScreenState extends State<FeedScreen> {
       backgroundColor: homeBg,
       body: ListView.builder(
         padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 8.0),
-        itemCount: 2,  // Specify how many items you want, can be dynamic if needed
+        itemCount: 2, // Specify how many items you want, can be dynamic if needed
         itemBuilder: (context, index) {
           return Padding(
             padding: const EdgeInsets.only(bottom: 10.0),
             child: Column(
               children: [
-                BestLocWidget(),
+                HeritageSphereWidget(),
                 const SizedBox(height: 10),
-                feedeventcardNearby(),
-
+                feedeventCardNearby(),
               ],
-            )
-            );  // You can replace with different widgets as needed
+            ),
+          );
         },
+      ),
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: () {
+          // Add functionality for "Plan Trip with AI" here
+          showDialog(
+            context: context,
+            builder: (context) => AlertDialog(
+              title: const Text("AI Trip Planner"),
+              content: const Text("This feature is coming soon!"),
+              actions: [
+                TextButton(
+                  onPressed: () => Navigator.pop(context),
+                  child: const Text("OK"),
+                ),
+              ],
+            ),
+          );
+        },
+        backgroundColor: Colors.blue,
+        icon: const Icon(Icons.explore, color: Colors.white),
+        label: const Text(
+          "Plan Trip with AI",
+          style: TextStyle(color: Colors.white),
+        ),
       ),
     );
   }

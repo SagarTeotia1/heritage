@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:heritage/Const/const_Var.dart';
 import 'package:heritage/Const/const_colo.dart';
 import 'package:heritage/Const/const_fonts.dart';
+import 'package:heritage/Widgets/Explore/EventCardWidget.dart';
 import 'package:heritage/Widgets/HomePageWidgets/BestLocWidget.dart';
 import 'package:heritage/Widgets/HomePageWidgets/VirtualTourWidget.dart';
 
@@ -137,10 +138,13 @@ class _HomepageScreenState extends State<HomepageScreen> {
                   const SizedBox(height: 20),
                   VitualTourWidget(),
                   const SizedBox(height: 20),
-                  BestLocWidget(),
+                  HeritageSphereWidget(),
                   const SizedBox(height: 20),
-                  BestLocWidget(),
-                  const SizedBox(height: 20),
+                  feedeventCardNearby(),
+                  const SizedBox(height: 40),
+
+                  
+                 
                   // Additional widgets go here
                 ],
               ),

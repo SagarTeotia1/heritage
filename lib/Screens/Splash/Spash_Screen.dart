@@ -16,7 +16,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     // Navigate to PreAuthScreen after 3 seconds
-    Future.delayed(Duration(seconds: 2), () {
+    Future.delayed(Duration(seconds: 1), () {
       Get.off(() => PreAuthScreen());
     });
   }
@@ -29,8 +29,8 @@ class _SplashScreenState extends State<SplashScreen> {
         children: [
           // Background Image
           Image.asset(
-            'assets/images/splashpagebg.png', // Replace with your image path
-            fit: BoxFit.cover, // Ensures the image covers the screen
+            'assets/images/splashpagebg.png',
+            fit: BoxFit.cover,
           ),
           // Content
           Center(
@@ -39,31 +39,29 @@ class _SplashScreenState extends State<SplashScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   AppIconWidget(),
-                  const SizedBox(height: 15), // Space between logo and text
+                  const SizedBox(height: 15),
                   Text(
                     "HeritageSphere",
                     style: TextStyle(
-                      fontSize: 18, // Font size
+                      fontSize: 18,
                       fontWeight: FontWeight.bold,
-                      fontFamily: regularfont, // Font family from const_fonts.dart
+                      fontFamily: regularfont,
                     ),
                   ),
-                  const SizedBox(height: 25), // Space between texts
+                  const SizedBox(height: 25),
                   Text(
                     "Explore, Preserve, Empower",
                     style: TextStyle(
-                      fontSize: 11, // Font size
-                      fontWeight: FontWeight.bold, // Font weight
-                      fontFamily: boldfont, // Font family from const_fonts.dart
+                      fontSize: 11,
+                      fontFamily: boldfont,
                     ),
                   ),
-                  const SizedBox(height: 5), // Space between texts
+                  const SizedBox(height: 5),
                   Text(
                     "– Virtually Anywhere",
                     style: TextStyle(
-                      fontSize: 11, // Font size
-                      fontWeight: FontWeight.bold, // Font weight
-                      fontFamily: boldfont, // Font family from const_fonts.dart
+                      fontSize: 11,
+                      fontFamily: boldfont,
                     ),
                   ),
                 ],
