@@ -42,10 +42,10 @@ class RegionalStorescreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFFCE4EC), // Light Pink inspired by Jaipur's architecture
+      backgroundColor: homeBg, // Light Pink inspired by Jaipur's architecture
       appBar: AppBar(
-        title: Text(region + ": The Pink City", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16 ,color: Colors.white)),
-        backgroundColor: Color(0xFF9C27B0), // Dark Pink, inspired by Jaipur's iconic color
+        title: Text(region),
+        backgroundColor: Colors.white, // Dark Pink, inspired by Jaipur's iconic color
         actions: [
           IconButton(
             icon: const Icon(Icons.search),
@@ -133,7 +133,7 @@ class RegionalItemCard extends StatelessWidget {
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 16,
-                  color: Color(0xFF9C27B0), // Using Jaipur-inspired color
+                  color: darktheme, // Using Jaipur-inspired color
                 ),
                 textAlign: TextAlign.center,
               ),
@@ -161,7 +161,17 @@ class ItemDetailScreen extends StatelessWidget {
     final isLandscape = MediaQuery.of(context).orientation == Orientation.landscape;
 
     return Scaffold(
-      backgroundColor: Color(0xFFFCE4EC), // Light Pink inspired by Jaipur's architecture
+      appBar: AppBar(
+        title: Text("Jaipur"),
+        backgroundColor: Colors.white, // Dark Pink, inspired by Jaipur's iconic color
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () {
+            Get.back();
+          },
+        ),
+      ),
+      backgroundColor: darktheme, // Light Pink inspired by Jaipur's architecture
       body: Column(
         children: [
           Padding(
@@ -204,7 +214,7 @@ class ItemDetailScreen extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 22,
                         fontWeight: FontWeight.bold,
-                        color: Color(0xFF9C27B0), // Jaipur-inspired color for headings
+                        color: Colors.white, // Jaipur-inspired color for headings
                       ),
                     ),
                     const SizedBox(height: 8),
@@ -212,7 +222,7 @@ class ItemDetailScreen extends StatelessWidget {
                       description,
                       style: const TextStyle(
                         fontSize: 14,
-                        color: Colors.grey,
+                        color: homeBg,
                         height: 1.5,
                       ),
                     ),
@@ -222,7 +232,7 @@ class ItemDetailScreen extends StatelessWidget {
                         Get.off(() => ExploreScreen());
                       },
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Color(0xFF9C27B0), // Jaipur-inspired button color
+                        backgroundColor: homeBg, // Jaipur-inspired button color
                         minimumSize: const Size(double.infinity, 50),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(12),

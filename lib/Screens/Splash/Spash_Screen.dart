@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:heritage/Const/const_colo.dart';
 import 'package:heritage/Const/const_fonts.dart';
 import 'package:heritage/Screens/AUTH/authprescreen.dart';
 import 'package:heritage/Widgets/Spash/appiconWidget.dart';
@@ -16,7 +17,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     // Navigate to PreAuthScreen after 3 seconds
-    Future.delayed(Duration(seconds: 1), () {
+    Future.delayed(Duration(seconds: 2), () {
       Get.off(() => PreAuthScreen());
     });
   }
@@ -43,7 +44,7 @@ class _SplashScreenState extends State<SplashScreen> {
                   Text(
                     "HeritageSphere",
                     style: TextStyle(
-                      fontSize: 18,
+                      fontSize: 24,
                       fontWeight: FontWeight.bold,
                       fontFamily: regularfont,
                     ),
@@ -52,16 +53,18 @@ class _SplashScreenState extends State<SplashScreen> {
                   Text(
                     "Explore, Preserve, Empower",
                     style: TextStyle(
-                      fontSize: 11,
-                      fontFamily: boldfont,
+                      fontSize: 14,
+                      fontFamily: itallicfont,
+                      color: darktheme
                     ),
                   ),
                   const SizedBox(height: 5),
                   Text(
                     "– Virtually Anywhere",
                     style: TextStyle(
-                      fontSize: 11,
-                      fontFamily: boldfont,
+                      fontSize: 14,
+                      fontFamily: itallicfont,
+                      color: darktheme
                     ),
                   ),
                 ],

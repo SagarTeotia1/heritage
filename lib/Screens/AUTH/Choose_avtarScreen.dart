@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:heritage/Const/const_colo.dart';
+import 'package:heritage/Const/const_fonts.dart';
 import 'package:heritage/Screens/Home/Home_Screen.dart';
 import 'package:model_viewer_plus/model_viewer_plus.dart';
 
@@ -24,10 +24,10 @@ class _ChooseAvatarScreenState extends State<ChooseAvatarScreen> {
 
   // List of avatar names to display below the model
   final List<String> avatarNames = [
-    'Avatar 1',
-    'Avatar 2',
-    'Avatar 3',
-    'Avatar 4',
+    'Rohan',
+    'Reet',
+    'Ravana',
+    'Sri',
   ];
 
   @override
@@ -39,7 +39,8 @@ class _ChooseAvatarScreenState extends State<ChooseAvatarScreen> {
           Container(
             decoration: const BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('assets/images/GETSTARTEDBG.png'), // Replace with your background image path
+                image: AssetImage(
+                    'assets/images/GETSTARTEDBG.png'), // Replace with your background image path
                 fit: BoxFit.cover,
               ),
             ),
@@ -55,7 +56,8 @@ class _ChooseAvatarScreenState extends State<ChooseAvatarScreen> {
                   const Text(
                     'Choose Your Avatar',
                     style: TextStyle(
-                      fontSize: 24,
+                      fontSize: 26,
+                      fontFamily: itallicfont,
                       fontWeight: FontWeight.bold,
                       color: Colors.white,
                     ),
@@ -145,11 +147,14 @@ class _ChooseAvatarScreenState extends State<ChooseAvatarScreen> {
                   print('Selected Avatar: $_selectedAvatarIndex');
                   Get.off(() => HomeScreen());
                 },
-          label: const Text('Continue',style: TextStyle(
-            color: Colors.white,
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-          ),),
+          label: const Text(
+            'Get Started',
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
           backgroundColor: _selectedAvatarIndex == -1
               ? const Color(0xFFB2C9AD) // Disabled color
               : const Color(0xFF4B5945), // Active color

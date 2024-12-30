@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:heritage/Const/const_colo.dart';
+import 'package:heritage/Const/const_img.dart';
 import 'package:heritage/Widgets/Explore/EventCardWidget.dart';
 import 'package:heritage/Widgets/HomePageWidgets/BestLocWidget.dart';
 import 'package:heritage/Widgets/HomePageWidgets/VirtualTourWidget.dart';
@@ -25,7 +26,7 @@ class _HomepageScreenState extends State<HomepageScreen> {
               ),
               
               accountName: const Text(
-                "SAGAR TOETIA",
+                "SAGAR TEOTIA",
                 style: TextStyle(
                   color: Colors.white,
                   fontWeight: FontWeight.bold,
@@ -37,14 +38,9 @@ class _HomepageScreenState extends State<HomepageScreen> {
                 style: TextStyle(color: Colors.white70),
               ),
               currentAccountPicture: CircleAvatar(
+                backgroundImage: AssetImage(logo),
                 backgroundColor: Colors.white,
-                child: Text(
-                  "S",
-                  style: TextStyle(
-                    fontSize: 36.0,
-                    color: Color(0xFF4B5945),
-                  ),
-                ),
+                
               ),
             ),
             ListTile(
@@ -172,7 +168,7 @@ class _HomepageScreenState extends State<HomepageScreen> {
                       ),
                     ),
                     const Text(
-                      "SAGAR TOETIA",
+                      "SAGAR TEOTIA",
                       style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.w500,

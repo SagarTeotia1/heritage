@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:heritage/Const/const_colo.dart';
 import 'package:heritage/Const/const_img.dart';
-import 'package:heritage/Screens/Explore/Explore_Screen.dart';
 import 'package:heritage/Screens/Home/Home_Screen.dart';
 import 'package:url_launcher/url_launcher.dart'; // Import url_launcher
 

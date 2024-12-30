@@ -89,7 +89,7 @@ class _VitualTourWidgetState extends State<VitualTourWidget> {
                     minimumSize: Size(90, 40),  // Set explicit width (small button)
                   ),
                   child: Text(
-                    "Explore !",
+                    "Explore",
                     style: TextStyle(
                       color: Colors.white,  // White text on the button
                       fontSize: 11,

@@ -10,8 +10,8 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
-  final String userName = "Alex Smith";
-  final String userEmail = "alex.smith@example.com";
+  final String userName = "Sagar Teotia";
+  final String userEmail = "EX@heritageSphere.com";
   final int heritageSitesVisited = 12;
   final double ecoIncentiveProgress = 0.6;
   final double metaverseExplorationProgress = 0.8;

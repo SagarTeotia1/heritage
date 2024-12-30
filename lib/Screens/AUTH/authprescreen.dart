@@ -1,6 +1,7 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:heritage/Const/const_colo.dart';
 import 'package:heritage/Const/const_fonts.dart';
 import 'package:heritage/Screens/AUTH/Choose_avtarScreen.dart';
 import 'package:heritage/Widgets/Spash/appiconWidget.dart';
@@ -31,13 +32,17 @@ class _PreAuthScreenState extends State<PreAuthScreen> {
             children: [
               const SizedBox(height: 40),
               AppIconWidget(),
-              const SizedBox(height: 20),
+              const SizedBox(height: 10),
               Text(
-                "HERTIAGE SPHERE",
+                "Heritage Sphere",
                 style: TextStyle(
                   fontSize: 24,
+                  fontFamily: itallicfont,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black,
                 ),
               ),
+              const SizedBox(height: 20),
               // Animated Typewriter Text with Line Break and Loop
               SizedBox(
                 height: 60,
@@ -49,7 +54,7 @@ class _PreAuthScreenState extends State<PreAuthScreen> {
                         fontSize: 18,
                         fontFamily: itallicfont,
                         fontWeight: FontWeight.bold,
-                        color: Colors.black,
+                        color: darktheme,
                       ),
                       textAlign: TextAlign.center, // Center-align the text
                       speed: const Duration(milliseconds: 100),
@@ -78,8 +83,8 @@ class _PreAuthScreenState extends State<PreAuthScreen> {
                     ),
                   ),
                   child: const Text(
-                    "Get Started",
-                    style: TextStyle(fontSize: 14, color: Colors.white),
+                    "Continue",
+                    style: TextStyle(fontSize: 18, color: Colors.white),
                   ),
                 ),
               ),

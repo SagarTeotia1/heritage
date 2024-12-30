@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:heritage/Const/const_colo.dart';
 import 'package:heritage/Const/const_img.dart';
 import 'package:heritage/Screens/Store/Regional_StoreScreen.dart';
 
@@ -38,16 +39,11 @@ final List<Map<String, String?>> recommendedItems = [
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: homeBg,
       appBar: AppBar(
         backgroundColor: Colors.white,
         title: const Text(
           "Regional Store",
-          style: TextStyle(
-            color: Color(0xFF66785F),
-            fontFamily: 'Roboto',
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-          ),
         ),
         actions: [
           IconButton(
