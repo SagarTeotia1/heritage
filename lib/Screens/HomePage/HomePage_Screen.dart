@@ -1,3 +1,4 @@
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:heritage/Const/const_Var.dart';
 import 'package:heritage/Const/const_colo.dart';
@@ -94,17 +95,27 @@ class _HomepageScreenState extends State<HomepageScreen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.start,
-                  children: const [
-                    SizedBox(height: 60),
-                    Text(
-                      greetname,
-                      style: TextStyle(
-                        fontSize: 12,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
+                  children: [
+                    const SizedBox(height: 60),
+                    // Animated Text for "Good Morning"
+                    SizedBox(
+                      height: 30,
+                      child: AnimatedTextKit(
+                        animatedTexts: [
+                          TypewriterAnimatedText(
+                            'Good Morning 👋',
+                            textStyle: const TextStyle(
+                              fontSize: 14,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                            ),
+                            speed: const Duration(milliseconds: 100),
+                          ),
+                        ],
+                        repeatForever: true, // Enable infinite loop
                       ),
                     ),
-                    Text(
+                    const Text(
                       "SAGAR TOETIA",
                       style: TextStyle(
                         fontSize: 20,

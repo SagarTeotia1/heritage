@@ -39,7 +39,7 @@ class _VitualTourWidgetState extends State<VitualTourWidget> {
               // Background image
               Positioned.fill(
                 child: Image.asset(
-                  logo,  // Replace with your actual image path
+                  effiletower,  // Replace with your actual image path
                   fit: BoxFit.cover,  // Ensures the image covers the whole area and gets cropped
                 ),
               ),
@@ -53,7 +53,7 @@ class _VitualTourWidgetState extends State<VitualTourWidget> {
                   style: TextStyle(
                     fontFamily: regularfont,
                     color: Colors.white,
-                    fontSize: 14,
+                    fontSize: 11,
                     shadows: [
                       Shadow(
                         blurRadius: 10.0,
