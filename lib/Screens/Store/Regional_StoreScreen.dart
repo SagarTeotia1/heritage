@@ -4,7 +4,6 @@ import 'package:heritage/Const/const_colo.dart'; // Ensure this file has `homeBg
 import 'package:heritage/Const/const_img.dart'; // Ensure this file has `logo`
 import 'package:heritage/Screens/Explore/Explore_Screen.dart';
 import 'package:heritage/Screens/Home/Home_Screen.dart';
-import 'package:heritage/Screens/Store/Store_Screen.dart';
 
 class RegionalStorescreen extends StatefulWidget {
   final String region;
