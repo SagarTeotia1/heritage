@@ -44,7 +44,7 @@ class RegionalStorescreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Color(0xFFFCE4EC), // Light Pink inspired by Jaipur's architecture
       appBar: AppBar(
-        title: Text(region, style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white)),
+        title: Text(region + ": The Pink City", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16 ,color: Colors.white)),
         backgroundColor: Color(0xFF9C27B0), // Dark Pink, inspired by Jaipur's iconic color
         actions: [
           IconButton(

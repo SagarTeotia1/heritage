@@ -1,8 +1,6 @@
-import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
-import 'package:heritage/Const/const_Var.dart';
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:heritage/Const/const_colo.dart';
-import 'package:heritage/Const/const_fonts.dart';
 import 'package:heritage/Widgets/Explore/EventCardWidget.dart';
 import 'package:heritage/Widgets/HomePageWidgets/BestLocWidget.dart';
 import 'package:heritage/Widgets/HomePageWidgets/VirtualTourWidget.dart';
@@ -20,19 +18,77 @@ class _HomepageScreenState extends State<HomepageScreen> {
     return Scaffold(
       drawer: Drawer(
         child: ListView(
-          children: const [
-            DrawerHeader(
-              decoration: BoxDecoration(
-                color: Colors.green,
+          children: [
+            UserAccountsDrawerHeader(
+              decoration: const BoxDecoration(
+                color: Color(0xFF4B5945),
               ),
-              child: Text(
-                'Drawer Header',
-                style: TextStyle(color: Colors.white),
+              
+              accountName: const Text(
+                "SAGAR TOETIA",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16,
+                ),
+              ),
+              accountEmail: const Text(
+                "example@heritagesphere.com",
+                style: TextStyle(color: Colors.white70),
+              ),
+              currentAccountPicture: CircleAvatar(
+                backgroundColor: Colors.white,
+                child: Text(
+                  "S",
+                  style: TextStyle(
+                    fontSize: 36.0,
+                    color: Color(0xFF4B5945),
+                  ),
+                ),
               ),
             ),
             ListTile(
-              leading: Icon(Icons.home),
-              title: Text('Home'),
+              leading: const Icon(Icons.person, color: Colors.black),
+              title: const Text("Profile"),
+              onTap: () {
+                // Handle profile action
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.notifications, color: Colors.black),
+              title: const Text("Notifications"),
+              onTap: () {
+                // Handle notifications action
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.palette, color: Colors.black),
+              title: const Text("Change Theme"),
+              onTap: () {
+                // Handle theme change
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.language, color: Colors.black),
+              title: const Text("Change Language"),
+              onTap: () {
+                // Handle language change
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.settings, color: Colors.black),
+              title: const Text("Settings"),
+              onTap: () {
+                // Handle settings
+              },
+            ),
+            const Divider(),
+            ListTile(
+              leading: const Icon(Icons.logout, color: Colors.red),
+              title: const Text("Logout"),
+              onTap: () {
+                // Handle logout
+              },
             ),
           ],
         ),
@@ -40,11 +96,11 @@ class _HomepageScreenState extends State<HomepageScreen> {
       body: CustomScrollView(
         slivers: [
           SliverAppBar(
-            title: Text(
-              appname,
+            title: const Text(
+              "HeritageSphere",
               style: TextStyle(
-                fontSize: 14,
-                fontFamily: regularfont,
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
                 color: Colors.white,
               ),
             ),
@@ -98,7 +154,6 @@ class _HomepageScreenState extends State<HomepageScreen> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     const SizedBox(height: 60),
-                    // Animated Text for "Good Morning"
                     SizedBox(
                       height: 30,
                       child: AnimatedTextKit(
@@ -113,7 +168,7 @@ class _HomepageScreenState extends State<HomepageScreen> {
                             speed: const Duration(milliseconds: 100),
                           ),
                         ],
-                        repeatForever: true, // Enable infinite loop
+                        repeatForever: true,
                       ),
                     ),
                     const Text(
@@ -136,7 +191,7 @@ class _HomepageScreenState extends State<HomepageScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const SizedBox(height: 20),
-                  VitualTourWidget(),
+                  const VitualTourWidget(),
                   const SizedBox(height: 20),
                   HeritageSphereWidget(),
                   const SizedBox(height: 20),
@@ -144,8 +199,6 @@ class _HomepageScreenState extends State<HomepageScreen> {
                   const SizedBox(height: 40),
 
                   
-                 
-                  // Additional widgets go here
                 ],
               ),
             ),
