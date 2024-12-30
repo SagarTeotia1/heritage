@@ -57,7 +57,7 @@ class _GuideScreenState extends State<GuideScreen> {
                   ar: true,
                   autoRotate: false,
                   disableZoom: false,
-                  cameraOrbit: '0deg 75deg 2.5m',
+                  
                 ),
               ),
             ),

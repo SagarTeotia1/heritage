@@ -2,7 +2,7 @@ import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:heritage/Const/const_fonts.dart';
-import 'package:heritage/Screens/Home/Home_Screen.dart';
+import 'package:heritage/Screens/AUTH/Choose_avtarScreen.dart';
 import 'package:heritage/Widgets/Spash/appiconWidget.dart';
 
 class PreAuthScreen extends StatefulWidget {
@@ -67,7 +67,7 @@ class _PreAuthScreenState extends State<PreAuthScreen> {
                 padding: const EdgeInsets.symmetric(vertical: 20), // Adjust vertical padding as needed
                 child: ElevatedButton(
                   onPressed: () {
-                    Get.off(()=>HomeScreen());
+                    Get.off(()=>ChooseAvatarScreen());
                     // Navigate to the next screen
                   },
                   style: ElevatedButton.styleFrom(
