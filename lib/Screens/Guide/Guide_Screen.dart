@@ -52,7 +52,7 @@ class _GuideScreenState extends State<GuideScreen> {
                 ),
                 child: ModelViewer(
                   backgroundColor: Colors.transparent,
-                  src: 'assets/images/animated_gerry_chicalo_standing__talking.glb',
+                  src: 'assets/images/talking_male_character_with_pointing_gestures.glb',
                   alt: 'A 3D model of a character',
                   ar: true,
                   autoRotate: false,
